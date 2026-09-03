@@ -25,10 +25,7 @@ export default function Country({
       <img src={country.flags.flags.png} alt="" />
       <h4>Capital: {country.capital.capital}</h4>
       <h4>Population: {country.population.population}</h4>
-      <button
-        onClick={handleVisited}
-        className={`btn ${visited ? "visited-btn" : ""}`}
-      >
+      <button onClick={handleVisited}>
         {visited ? "Visited" : "Mark as Visited"}
       </button>
 
@@ -36,7 +33,6 @@ export default function Country({
         onClick={() => {
           handlerVisitedFlags(country.flags.flags.png);
         }}
-        className="btn"
       >
         Mark to add visited Flag
       </button>

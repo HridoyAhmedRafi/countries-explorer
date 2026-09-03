@@ -4,25 +4,12 @@
   margin: 8px 4px;
   border-radius: 12px;
 }
-.btn {
-  height: 40px;
-  width: 150px;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  background: rgb(160, 95, 221);
-  margin: 0px 8px;
-}
 
-.visited-btn {
-  height: 40px;
-  width: 150px;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  background: purple;
-}
 
 .visited-bg {
   background: rgba(190, 4, 190, 0.285);
+}
+
+.visited-flags img {
+  width: 200px;
 }
