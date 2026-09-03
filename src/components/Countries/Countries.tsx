@@ -12,17 +12,25 @@ export default function Countries({ countriesPromise }: CountriesProps) {
 
   // to count visited countries
   const [visitedCountries, setVisitedCountries] = useState<CountryType[]>([]);
+  // state to count visited flags
+  const [visitedFlags, setVisitedFlags] = useState<string[]>([]);
 
-  // even handler
+  // handler to count visited countries
   const handleVisitedCountry = (country: CountryType): void => {
     const newVisitedCountries = [...visitedCountries, country];
     setVisitedCountries(newVisitedCountries);
-
+  };
+  // handler to count visited flags
+  const handlerVisitedFlags = (flags: string): void => {
+    const newVisitedFlags = [...visitedFlags, flags];
+    setVisitedFlags(newVisitedFlags);
+    console.log(flags);
   };
 
   return (
     <div>
       <h2>Countries: {counrteis.length}</h2>
+      <h2>Visited Flags: {visitedFlags.length}</h2>
 
       <h4>Visited Country: {visitedCountries.length}</h4>
       <div className="countries">
@@ -31,6 +39,7 @@ export default function Countries({ countriesPromise }: CountriesProps) {
             key={currentCountry.ccn3.ccn3}
             country={currentCountry}
             handleVisitedCountry={handleVisitedCountry}
+            handlerVisitedFlags={handlerVisitedFlags}
           ></Country>
         ))}
       </div>
