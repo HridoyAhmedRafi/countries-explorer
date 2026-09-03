@@ -17,14 +17,22 @@ export default function Countries({ countriesPromise }: CountriesProps) {
 
   // handler to count visited countries
   const handleVisitedCountry = (country: CountryType): void => {
-    const newVisitedCountries = [...visitedCountries, country];
-    setVisitedCountries(newVisitedCountries);
+    if (visitedCountries.includes(country)) {
+      return;
+    } else {
+      const newVisitedCountries = [...visitedCountries, country];
+      setVisitedCountries(newVisitedCountries);
+    }
   };
+  
   // handler to count visited flags
   const handlerVisitedFlags = (flags: string): void => {
-    const newVisitedFlags = [...visitedFlags, flags];
-    setVisitedFlags(newVisitedFlags);
-    console.log(flags);
+    if (visitedFlags.includes(flags)) {
+      return;
+    } else {
+      const newVisitedFlags = [...visitedFlags, flags];
+      setVisitedFlags(newVisitedFlags);
+    }
   };
 
   return (

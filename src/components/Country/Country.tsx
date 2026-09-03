@@ -36,6 +36,7 @@ export default function Country({
         onClick={() => {
           handlerVisitedFlags(country.flags.flags.png);
         }}
+        className="btn"
       >
         Mark to add visited Flag
       </button>
