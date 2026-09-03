@@ -1,0 +1,39 @@
+import { use, useState } from "react";
+import type { CountryType } from "../../type";
+import Country from "../Country/Country";
+import "./Countries.css";
+
+export interface CountriesProps {
+  countriesPromise: Promise<CountryType[]>;
+}
+
+export default function Countries({ countriesPromise }: CountriesProps) {
+  const counrteis = use(countriesPromise);
+
+  // to count visited countries
+  const [visitedCountries, setVisitedCountries] = useState<CountryType[]>([]);
+
+  // even handler
+  const handleVisitedCountry = (country: CountryType): void => {
+    const newVisitedCountries = [...visitedCountries, country];
+    setVisitedCountries(newVisitedCountries);
+
+  };
+
+  return (
+    <div>
+      <h2>Countries: {counrteis.length}</h2>
+
+      <h4>Visited Country: {visitedCountries.length}</h4>
+      <div className="countries">
+        {counrteis.map((currentCountry) => (
+          <Country
+            key={currentCountry.ccn3.ccn3}
+            country={currentCountry}
+            handleVisitedCountry={handleVisitedCountry}
+          ></Country>
+        ))}
+      </div>
+    </div>
+  );
+}
